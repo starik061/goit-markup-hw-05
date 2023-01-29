@@ -63,7 +63,7 @@ img {
 /* Header styles */
 
 .main-header {
-  padding: 24px 0;
+  padding: 24px 0 28px 0;
   border-bottom: 1px solid var(--footer-text-color);
 }
 .logo {
@@ -108,7 +108,19 @@ img {
 .current {
   color: var(--hover-color);
 }
+.current {
+  position: relative;
+}
+.current::after {
+  position: absolute;
+  left: 0;
+  bottom: -31px;
+  content: '';
+  width: 100%;
 
+  border: 2px solid var(--hover-color);
+  border-radius: 2px;
+}
 .address {
   margin-left: auto;
   font-style: normal;
