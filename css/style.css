@@ -114,7 +114,8 @@ img {
 .current::after {
   position: absolute;
   left: 0;
-  bottom: -32px;
+  bottom: -31px;
+  display: block;
   content: '';
   width: 100%;
   pointer-events: none;
