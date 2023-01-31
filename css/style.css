@@ -414,8 +414,8 @@ footer {
   left: 0;
   top: 0;
   background-color: var(--modal-overlay-bg);
-  /* opacity: 1; */
-  /* pointer-events: none; */
+  transition: opacity 250ms var(--transition-func);
+  opacity: 1;
 }
 
 .is-hidden {
@@ -423,6 +423,11 @@ footer {
   opacity: 0;
   pointer-events: none;
 }
+
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+
 .modal {
   position: absolute;
   width: 408px;
@@ -431,17 +436,21 @@ footer {
   padding-right: 24px;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(100%);
   background-color: var(--modal-bg-color);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transition: transform 250ms var(--transition-func) 50ms;
 }
 .close-btn {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 24px;
   height: 24px;
   margin-left: auto;
+  padding: 0;
   background-color: var(--close-btn-bg-color);
   border: 1px solid var(--close-btn-border-color);
   border-radius: 50%;
@@ -508,11 +517,11 @@ footer {
   width: 360px;
   margin-right: 24px;
   margin-bottom: 48px;
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .portfolio-list a {
   display: inline-block;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
   transition: box-shadow 250ms var(--transition-func);
 }
 .portfolio-list a:hover,
@@ -553,7 +562,7 @@ footer {
   background-color: var(--first-part-logo-color);
   opacity: 0;
   transition: transform 250ms var(--transition-func),
-    opacity 200ms var(--transition-func);
+    opacity 500ms var(--transition-func);
 }
 
 .portfolio-list a:hover .portfolio-card-overlay {
