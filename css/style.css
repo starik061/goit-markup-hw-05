@@ -16,6 +16,7 @@
   --modal-bg-color: #fcfcfc;
   --close-btn-bg-color: #e7e9fc;
   --close-btn-border-color: rgba(0, 0, 0, 0.1);
+  --transition-func: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -111,6 +112,7 @@ img {
 .contacts:active,
 .current {
   color: var(--hover-color);
+  transition: color 250ms var(--transition-func);
 }
 
 .current {
@@ -176,6 +178,7 @@ img {
   line-height: inherit;
   cursor: pointer;
   border: none;
+  transition: background-color 250ms var(--transition-func);
 }
 
 .order-service:hover,
@@ -294,6 +297,8 @@ img {
   height: 40px;
   background-color: var(--first-part-logo-color);
   border-radius: 50%;
+
+  transition: background-color 250ms var(--transition-func);
 }
 
 .social-network-link:hover,
@@ -318,6 +323,9 @@ img {
   border: 1px solid var(--icon-color);
   border-radius: 4px;
   padding: 15px 31px;
+
+  transition: color 250ms var(--transition-func),
+    border-color 250ms var(--transition-func);
 }
 
 .customer-item svg {
@@ -382,6 +390,7 @@ footer {
   height: 40px;
   border-radius: 50%;
   background-color: var(--footer-socials-bg);
+  transition: background-color 250ms var(--transition-func);
 }
 
 .footer-social-networks-item a:hover,
@@ -437,6 +446,11 @@ footer {
   border: 1px solid var(--close-btn-border-color);
   border-radius: 50%;
   cursor: pointer;
+  transition: background-color 250ms var(--transition-func),
+    border-color 250ms var(--transition-func);
+}
+.close-btn svg {
+  transition: fill 250ms var(--transition-func);
 }
 
 .close-btn:hover {
@@ -471,6 +485,10 @@ footer {
   border: 1px solid var(--footer-text-color);
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 250ms var(--transition-func),
+    color 250ms var(--transition-func),
+    border-color 250ms var(--transition-func),
+    box-shadow 250ms var(--transition-func);
 }
 .filter-btn:hover,
 .filter-btn:focus,
@@ -495,6 +513,7 @@ footer {
 
 .portfolio-list a {
   display: inline-block;
+  transition: box-shadow 250ms var(--transition-func);
 }
 .portfolio-list a:hover,
 .portfolio-list a:focus {
@@ -520,6 +539,7 @@ footer {
 
 .portfolio-card-wrapper {
   position: relative;
+  overflow: hidden;
 }
 .portfolio-card-overlay {
   position: absolute;
@@ -528,13 +548,15 @@ footer {
   right: 0;
   bottom: 0;
   padding: 40px 32px;
+  transform: translateY(100%);
   color: var(--secondary-background-color);
   background-color: var(--first-part-logo-color);
   opacity: 0;
-  pointer-events: none;
+  transition: transform 250ms var(--transition-func),
+    opacity 200ms var(--transition-func);
 }
 
-.portfolio-list li:hover .portfolio-card-overlay {
+.portfolio-list a:hover .portfolio-card-overlay {
+  transform: translateY(0);
   opacity: 1;
-  pointer-events: all;
 }
