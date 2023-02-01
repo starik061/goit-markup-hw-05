@@ -90,6 +90,7 @@ img {
 .nav-title {
   font-weight: 500;
   color: var(--main-title-color);
+  transition: color 250ms var(--transition-func);
 }
 .menu-list > li,
 .address li {
@@ -102,6 +103,7 @@ img {
 }
 .contacts {
   color: inherit;
+  transition: color 250ms var(--transition-func);
 }
 
 .nav-title:hover,
@@ -112,7 +114,6 @@ img {
 .contacts:active,
 .current {
   color: var(--hover-color);
-  transition: color 250ms var(--transition-func);
 }
 
 .current {
@@ -221,6 +222,9 @@ img {
 }
 
 .benefits-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 8px;
   background-color: var(--secondary-background-color);
   border-radius: 4px;
@@ -229,7 +233,6 @@ img {
   display: block;
   max-width: 60px;
   max-height: 112px;
-  margin: 0 auto;
 }
 
 /* "What are we doing" section  */
@@ -316,13 +319,14 @@ img {
   margin-right: 24px;
 }
 .customer-item a {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 168px;
   height: 88px;
   color: var(--icon-color);
   border: 1px solid var(--icon-color);
   border-radius: 4px;
-  padding: 15px 31px;
 
   transition: color 250ms var(--transition-func),
     border-color 250ms var(--transition-func);
@@ -432,8 +436,6 @@ footer {
   position: absolute;
   width: 408px;
   height: 586px;
-  padding-top: 24px;
-  padding-right: 24px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) scale(100%);
@@ -444,12 +446,14 @@ footer {
   transition: transform 250ms var(--transition-func) 50ms;
 }
 .close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 24px;
   height: 24px;
-  margin-left: auto;
   padding: 0;
   background-color: var(--close-btn-bg-color);
   border: 1px solid var(--close-btn-border-color);
@@ -521,6 +525,8 @@ footer {
 
 .portfolio-list a {
   display: inline-block;
+
+  color: var(--main-text-color);
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
   transition: box-shadow 250ms var(--transition-func);
 }
@@ -529,7 +535,9 @@ footer {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
-
+.portfolio-list a:active {
+  color: var(--main-text-color);
+}
 .portfolio-list > li:nth-child(3n) {
   margin-right: 0;
 }
